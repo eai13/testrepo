@@ -22,6 +22,7 @@ private:
   void startTick(void);
   void stopTick(void);
   void onTick(void);
+  void setStatusBarText(void);
 
   QString formattedDateTime(void) const;
 

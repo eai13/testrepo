@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include <QDateTime>
 #include <QTimeZone>
+#include <version.h>
 
 MainWindow::MainWindow(QWidget* parent)
   : QMainWindow(parent)
@@ -11,6 +12,8 @@ MainWindow::MainWindow(QWidget* parent)
   , _timerSync{ this }
 {
   ui->setupUi(this);
+
+  setStatusBarText();
 
   connect(&_timerTick, &QTimer::timeout, this, &MainWindow::onTick);
   connect(&_timerSync, &QTimer::timeout, this, &MainWindow::onSyncDateTime);
@@ -55,6 +58,15 @@ MainWindow::onTick()
 {
   ui->teLog->append(
     QStringLiteral("%1\tTick %2").arg(formattedDateTime()).arg(_tickCount++));
+}
+
+void
+MainWindow::setStatusBarText()
+{
+  statusBar()->showMessage(QStringLiteral("Tag: %1 | Timestamp: %2 | SHA: %3")
+                             .arg(META_GIT_TAG_NAME)
+                             .arg(META_GIT_TAG_TIMESTAMP)
+                             .arg(META_GIT_TAG_SHA));
 }
 
 QString
