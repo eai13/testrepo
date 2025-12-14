@@ -46,7 +46,7 @@ jobs:
         run: |
           mkdir deploy
           cp build\testrepo.exe deploy\
-          D:\a\RumoBootUi\Qt\5.15.2\mingw81_32\bin\windeployqt.exe deploy
+          D:\a\testrepo\Qt\5.15.2\mingw81_32\bin\windeployqt.exe deploy
           cp C:\ProgramData\chocolatey\lib\mingw\tools\install\mingw32\bin\libgcc_s_dw2-1.dll deploy\
           cp C:\ProgramData\chocolatey\lib\mingw\tools\install\mingw32\bin\libstdc++-6.dll deploy\
           cp C:\ProgramData\chocolatey\lib\mingw\tools\install\mingw32\bin\libwinpthread-1.dll deploy\
